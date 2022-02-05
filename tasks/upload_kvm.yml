@@ -6,7 +6,7 @@
 
 - name: Disconnect the current drive
   uri:
-    url: "http://{{ pikvm_address }}/api/msd/set_connected?connected=0"
+    url: "https://{{ pikvm_address }}/api/msd/set_connected?connected=0"
     method: POST
     status_code: [ 400, 200 ]
     headers:
@@ -17,7 +17,7 @@
 
 - name: Remove the previous ISO
   uri:
-    url: "http://{{ pikvm_address }}/api/msd/remove?image=ubuntu_autoinstall.iso"
+    url: "https://{{ pikvm_address }}/api/msd/remove?image=ubuntu_autoinstall.iso"
     status_code: [ 400, 200 ]
     method: POST
     headers:
@@ -33,7 +33,7 @@
 - name: Select the ubuntu_autoinstall ISO
   uri:
     validate_certs: no
-    url: "http://{{ pikvm_address }}/api/msd/set_params?image=ubuntu_autoinstall.iso"
+    url: "https://{{ pikvm_address }}/api/msd/set_params?image=ubuntu_autoinstall.iso"
     method: POST
     headers:
       X-KVMD-User: "{{ pikvm_username }}"
@@ -42,7 +42,7 @@
 - name: Connect the ISO to the server
   uri:
     validate_certs: no
-    url: "http://{{ pikvm_address }}/api/msd/set_connected?connected=true"
+    url: "https://{{ pikvm_address }}/api/msd/set_connected?connected=true"
     method: POST
     headers:
       X-KVMD-User: "{{ pikvm_username }}"
