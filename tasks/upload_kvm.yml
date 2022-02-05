@@ -6,6 +6,7 @@
 
 - name: Disconnect the current drive
   uri:
+    validate_certs: no
     url: "https://{{ pikvm_address }}/api/msd/set_connected?connected=0"
     method: POST
     status_code: [ 400, 200 ]
@@ -17,6 +18,7 @@
 
 - name: Remove the previous ISO
   uri:
+    validate_certs: no
     url: "https://{{ pikvm_address }}/api/msd/remove?image=ubuntu_autoinstall.iso"
     status_code: [ 400, 200 ]
     method: POST
