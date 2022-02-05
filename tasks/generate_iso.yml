@@ -96,8 +96,13 @@
   with_items: 
     - "{{ target_dir }}/iso"
 
+- name: "Set generated ISO path"
+  set_fact:
+    generated_iso_path: "{{ target_dir }}/ubuntu_autoinstall_{{ iso_arch }}.iso"
+
 - name: Done!
   debug:
-    msg: "Done! The ISO file has been generated: {{target_dir}}/ubuntu_autoinstall_{{ iso_arch }}.iso"
+    msg: "Done! The ISO file has been generated: {{ generated_iso_path }}"
+
     
   
