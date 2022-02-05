@@ -27,7 +27,7 @@
 
 - name: Launch dirmngr if it isn't running
   shell:
-    cmd: "dirmngr"
+    cmd: "dirmngr --daemon"
   when: dirmngr_pids.pids | length == 0
 
 - name: Import the GPG key
